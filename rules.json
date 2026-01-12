@@ -1,0 +1,98 @@
+{
+  "categories": {
+    "Media": {
+      "description": "개인 사진, 영상, 스크린샷, 오디오",
+      "patterns": [
+        "IMG_*",
+        "SNOW_*",
+        "KakaoTalk_*",
+        "Screenshot*",
+        "ScreenRecording_*",
+        "Gemini_Generated_Image*",
+        "*.MOV",
+        "*.mp4",
+        "*.MP4",
+        "*.m4a",
+        "*.mp3",
+        "*.jpeg",
+        "*.jpg",
+        "*.JPG",
+        "*.png",
+        "*.PNG",
+        "*.gif",
+        "*.webp"
+      ]
+    },
+    "Dev": {
+      "description": "앱 빌드, 목업, 개발 에셋",
+      "patterns": [
+        "*.aab",
+        "*.apk",
+        "*mockup*",
+        "apple-iphone-*",
+        "AppScreens-*",
+        "AuthKey*",
+        "PushKey*",
+        "*firebase*.json",
+        "*.svg",
+        "*logo*",
+        "*icon*",
+        "*.xml",
+        "*.db"
+      ]
+    },
+    "Business": {
+      "description": "사업 문서, 계약서, 재무 서류",
+      "patterns": [
+        "*계획서*",
+        "*사업계획서*",
+        "*계약서*",
+        "*Contract*",
+        "*견적서*",
+        "*Invoice*",
+        "*세금계산서*",
+        "*급여명세서*",
+        "*Certificate*",
+        "*사업자등록증*",
+        "MARU*",
+        "Koddy*",
+        "Koddies*",
+        "YC*",
+        "*Resume*",
+        "*이력서*",
+        "린스타트업*",
+        "*창업*",
+        "SIGNED*",
+        "ESTA*",
+        "*증명서*"
+      ]
+    },
+    "Resources": {
+      "description": "책, 교육자료, 참고문서",
+      "patterns": [
+        "*교육*",
+        "*강연*",
+        "Notion Icons*",
+        "Notioly*",
+        "*Build-Session*"
+      ],
+      "keywords": [
+        "ALMANACK",
+        "Mom Test",
+        "Heath"
+      ]
+    }
+  },
+  "delete": {
+    "description": "삭제 대상 (설치 완료된 파일)",
+    "patterns": [
+      "*.dmg"
+    ],
+    "requireConfirmation": true
+  },
+  "settings": {
+    "targetFolder": "~/Downloads",
+    "keepDuplicates": true,
+    "preserveTimestamps": true
+  }
+}
