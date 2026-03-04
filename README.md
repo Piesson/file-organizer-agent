@@ -99,6 +99,72 @@ Claude Code에서:
 
 `rules.json` 파일을 수정하여 분류 규칙을 변경할 수 있습니다.
 
+## 개인정보 보호 모델
+
+### 왜 PI-Safe인가?
+
+파일명 자체가 개인정보(PI)인 경우가 있습니다:
+
+| 위험도 | 파일명 예시 | 포함 정보 |
+|--------|------------|----------|
+| HIGH | `급여명세서 1.pdf`, `소득확인증명서.pdf` | 재정 현황 |
+| HIGH | `신분증.png`, `재학증명서.pdf` | 신원 서류 |
+| HIGH | `AuthKey_77D7KC8DN2.p8` | 보안 자격증명 |
+| HIGH | `koddy-inc_Wire-Details-Checking-9390.pdf` | 은행 계좌 정보 |
+
+기존 `/organize` 명령어는 `ls ~/Downloads` 전체를 Claude API로 전송했습니다.
+이제 PI 파일을 먼저 로컬 처리하여 API로 전달되지 않게 합니다.
+
+### 3단계 워크플로우
+
+```
+┌─────────────────────────────────────────────────┐
+│  STEP 1: PI 파일 로컬 처리 (API 전송 ZERO)         │
+│  python3 organizer.py --pi-only --execute        │
+│  → HIGH/MEDIUM 파일 처리 (재무, 서류, 인증키)      │
+└─────────────────────────────────────────────────┘
+           ↓
+┌─────────────────────────────────────────────────┐
+│  STEP 2: 나머지 파일 로컬 처리 (API 전송 ZERO)      │
+│  python3 organizer.py --non-pi --execute         │
+│  → LOW/NONE 파일 처리 (YC, 이력서, 미디어, 서적)   │
+└─────────────────────────────────────────────────┘
+           ↓
+┌─────────────────────────────────────────────────┐
+│  STEP 3: 미분류 파일 선택적 Claude 분류             │
+│  python3 organizer.py --report                   │
+│  → 패턴 미매칭 파일 목록 + PI 추정 수준 표시         │
+│  → 이 시점 Downloads에 PI 파일명 없음               │
+└─────────────────────────────────────────────────┘
+```
+
+**일상 정리**: Step 1+2 통합 실행으로 충분합니다:
+```bash
+python3 organizer.py --execute
+```
+
+### pi_level 체계
+
+| pi_level | 서브폴더 예시 | Claude API 전송 |
+|----------|-------------|----------------|
+| HIGH | 개인서류, Koddy_Inc/재무, 인증키 | ❌ 전송 안 함 |
+| MEDIUM | 예창패, 창업중심대학, Dev/데이터 | ❌ 전송 안 함 |
+| LOW | YC, 채용, Dev/코딩로그 | ❌ 전송 안 함 |
+| NONE | 목업, 에셋, 미디어, 서적 | ✅ Step 3에서만 가능 |
+
+### organizer.py CLI
+
+```bash
+python3 organizer.py                      # dry-run 전체
+python3 organizer.py --execute            # 전체 실행
+python3 organizer.py --pi-only            # PI (HIGH+MEDIUM) dry-run
+python3 organizer.py --pi-only --execute  # PI (HIGH+MEDIUM) 실행
+python3 organizer.py --non-pi --execute   # 비PI (LOW+NONE) 실행
+python3 organizer.py --report             # 미분류 파일 목록 출력
+```
+
+이동 로그: `~/.local/share/file-organizer/organize.log`
+
 ## 라이센스
 
 MIT

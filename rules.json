@@ -3,42 +3,78 @@
     "Business": {
       "description": "사업 문서, 계약서, 재무 서류",
       "subfolders": {
-        "Koddy_Inc/법인설립": [
-          "*Certificate*", "*Incorporation*", "SIGNED*", "*IRS*",
-          "*Delaware*", "*FranchiseTax*", "*certificate of insurance*",
-          "ps-form-*", "*CSC*", "*사업자등록증*"
-        ],
-        "Koddy_Inc/재무": [
-          "*Invoice*", "*세금계산서*", "*Wire-Details*",
-          "*mercury-backup*", "*견적서*", "*송금내역*"
-        ],
-        "Koddy_Inc/계약서": [
-          "*MARU*계약서*", "*임대차*", "*멤버십 계약서*",
-          "*입주 계약서*", "*팀 활동 종료*", "*계약서*", "*Contract*"
-        ],
-        "예창패/2025": [
-          "*예비창업패키지*2025*", "*린스타트업*", "*심사의견서*",
-          "*Koreigner*예비창업*", "예창패 공고*"
-        ],
-        "예창패/2026": [
-          "*예비창업패키지*2026*", "2026*예비창업*", "*2026*예창패*"
-        ],
-        "창업중심대학": [
-          "*창업중심대학*", "*캠퍼스타운*", "*창업경진대회*",
-          "*시대창*", "*아이디어 사업화*", "*동대문구*창업*",
-          "*혁신창업리그*", "*정주영*창업*"
-        ],
-        "YC": [
-          "YC*", "*YC*펀드*", "*co-founder matching*"
-        ],
-        "개인서류": [
-          "*급여명세서*", "*재학증명서*", "*소득확인*", "*경력증명서*",
-          "*휴학증명서*", "*소득금액증명*", "*졸업증명서*", "*신분증*",
-          "*.p12", "*수료증*"
-        ],
-        "채용": [
-          "*Resume*", "*이력서*", "CV_*"
-        ]
+        "Koddy_Inc/법인설립": {
+          "patterns": [
+            "*Certificate*", "*Incorporation*", "SIGNED*", "*IRS*",
+            "*Delaware*", "*FranchiseTax*", "*certificate of insurance*",
+            "ps-form-*", "*CSC*", "*사업자등록증*"
+          ],
+          "pi_level": "HIGH",
+          "description": "법인 등기 서류 - 회사명/세금ID/법적 신원 포함"
+        },
+        "Koddy_Inc/재무": {
+          "patterns": [
+            "*Invoice*", "*세금계산서*", "*Wire-Details*",
+            "*mercury-backup*", "*견적서*", "*송금내역*"
+          ],
+          "pi_level": "HIGH",
+          "description": "재정 서류 - 파일명에 금융정보/계좌 포함"
+        },
+        "Koddy_Inc/계약서": {
+          "patterns": [
+            "*MARU*계약서*", "*임대차*", "*멤버십 계약서*",
+            "*입주 계약서*", "*팀 활동 종료*", "*계약서*", "*Contract*"
+          ],
+          "pi_level": "HIGH",
+          "description": "계약서 - 계약 당사자 이름/조건 포함"
+        },
+        "예창패/2025": {
+          "patterns": [
+            "*예비창업패키지*2025*", "*린스타트업*", "*심사의견서*",
+            "*Koreigner*예비창업*", "예창패 공고*"
+          ],
+          "pi_level": "MEDIUM",
+          "description": "예창패 2025 - 대표자 이름 포함 사업계획서"
+        },
+        "예창패/2026": {
+          "patterns": [
+            "*예비창업패키지*2026*", "2026*예비창업*", "*2026*예창패*"
+          ],
+          "pi_level": "MEDIUM",
+          "description": "예창패 2026 - 대표자 이름 포함 사업계획서"
+        },
+        "창업중심대학": {
+          "patterns": [
+            "*창업중심대학*", "*캠퍼스타운*", "*창업경진대회*",
+            "*시대창*", "*아이디어 사업화*", "*동대문구*창업*",
+            "*혁신창업리그*", "*정주영*창업*"
+          ],
+          "pi_level": "MEDIUM",
+          "description": "창업 지원 프로그램 문서 - 이름 포함 가능"
+        },
+        "YC": {
+          "patterns": [
+            "YC*", "*YC*펀드*", "*co-founder matching*"
+          ],
+          "pi_level": "LOW",
+          "description": "YC 관련 자료 - 공개용 덱/가이드"
+        },
+        "개인서류": {
+          "patterns": [
+            "*급여명세서*", "*재학증명서*", "*소득확인*", "*경력증명서*",
+            "*휴학증명서*", "*소득금액증명*", "*졸업증명서*", "*신분증*",
+            "*.p12", "*수료증*"
+          ],
+          "pi_level": "HIGH",
+          "description": "개인 신원 서류 - 이름/ID번호/재정현황 포함"
+        },
+        "채용": {
+          "patterns": [
+            "*Resume*", "*이력서*", "CV_*"
+          ],
+          "pi_level": "LOW",
+          "description": "채용 서류 - 공개 목적으로 작성된 이력서"
+        }
       },
       "patterns": [
         "*계획서*", "*사업계획서*", "*Certificate*",
@@ -49,26 +85,50 @@
     "Dev": {
       "description": "앱 빌드, 목업, 개발 에셋, 인증키",
       "subfolders": {
-        "코딩로그": ["*__코딩로그_*"],
-        "목업": [
-          "apple-iphone-*", "*mockup*", "AppScreens-*",
-          "Animated-iPhone-*"
-        ],
-        "에셋": [
-          "*.svg", "*_logo*", "*icon*", "Notioly*",
-          "Notion Icons*", "*startup.png*", "*poster*", "kbim*.png",
-          "photoofkb*", "photoofme*"
-        ],
-        "배포": ["*.aab", "*.apk", "client.o", "koddies-*.aab"],
-        "인증키": [
-          "AuthKey*", "PushKey*", "*firebase*adminsdk*.json",
-          "*.p12", "*.p8"
-        ],
-        "데이터": [
-          "*.db", "*.csv", "logs_result.json",
-          "*Edge Requests*", "*.xml", "responses.*",
-          "*고객*정리*.xlsx", "*User*.xlsx", "*FB 유저*"
-        ]
+        "코딩로그": {
+          "patterns": ["*__코딩로그_*"],
+          "pi_level": "LOW",
+          "description": "코딩 작업 기록 - 기술 내용 중심"
+        },
+        "목업": {
+          "patterns": [
+            "apple-iphone-*", "*mockup*", "AppScreens-*",
+            "Animated-iPhone-*"
+          ],
+          "pi_level": "NONE",
+          "description": "앱 목업 이미지 - 공개 디자인 파일"
+        },
+        "에셋": {
+          "patterns": [
+            "*.svg", "*_logo*", "*icon*", "Notioly*",
+            "Notion Icons*", "*startup.png*", "*poster*", "kbim*.png",
+            "photoofkb*", "photoofme*"
+          ],
+          "pi_level": "NONE",
+          "description": "개발 에셋 - 공개 이미지/아이콘"
+        },
+        "배포": {
+          "patterns": ["*.aab", "*.apk", "client.o", "koddies-*.aab"],
+          "pi_level": "NONE",
+          "description": "앱 빌드 파일 - 배포용 바이너리"
+        },
+        "인증키": {
+          "patterns": [
+            "AuthKey*", "PushKey*", "*firebase*adminsdk*.json",
+            "*.p8"
+          ],
+          "pi_level": "HIGH",
+          "description": "보안 인증키 - Apple/Firebase 서버 자격증명"
+        },
+        "데이터": {
+          "patterns": [
+            "*.db", "*.csv", "logs_result.json",
+            "*Edge Requests*", "*.xml", "responses.*",
+            "*고객*정리*.xlsx", "*User*.xlsx", "*FB 유저*"
+          ],
+          "pi_level": "MEDIUM",
+          "description": "데이터 파일 - 사용자 데이터 포함 가능"
+        }
       },
       "patterns": [
         "*.aab", "*.apk", "apple-iphone-*", "AppScreens-*",
@@ -79,33 +139,57 @@
     "Resources": {
       "description": "책, 교육자료, 참고문서, AI 연구자료",
       "subfolders": {
-        "Books/AI-Tech": [
-          "*Vibe_Coding*", "*context engineering*", "*Agentic_Ai*",
-          "*AI로개발*", "*AI-Snake-Oil*", "*Trends_Artificial*",
-          "*Eedi*"
-        ],
-        "Books/Business": [
-          "*elon-musk*", "*whats-our-problem*", "*ALMANACK*",
-          "*Mom Test*", "*Four_Steps*", "*Switch*"
-        ],
-        "Books/General": [
-          "*brain*", "*intelligence*", "*Book of Why*",
-          "Atomic_Habits*", "*How to Create a Mind*",
-          "*predictably irrational*", "*Pearl*"
-        ],
-        "AI": [
-          "*Kurzweil*", "*hinton-*", "*pnas.*",
-          "*peter-thiel*", "*uaai_a*"
-        ],
-        "강연자료": [
-          "*SNS와 콘텐츠*", "*자금조달 로드맵*", "*글로벌 진출*",
-          "*Build-Session*", "*Cheat Sheet*", "*디커플링*",
-          "*아산두어스*", "*메텔*", "*알파브라더스*"
-        ],
-        "한국어": [
-          "*Talk*to*Me*in*Korean*", "*korean*level*",
-          "pdfcoffee.com_talk*"
-        ]
+        "Books/AI-Tech": {
+          "patterns": [
+            "*Vibe_Coding*", "*context engineering*", "*Agentic_Ai*",
+            "*AI로개발*", "*AI-Snake-Oil*", "*Trends_Artificial*",
+            "*Eedi*"
+          ],
+          "pi_level": "NONE",
+          "description": "AI/기술 서적 - 공개 출판물"
+        },
+        "Books/Business": {
+          "patterns": [
+            "*elon-musk*", "*whats-our-problem*", "*ALMANACK*",
+            "*Mom Test*", "*Four_Steps*", "*Switch*"
+          ],
+          "pi_level": "NONE",
+          "description": "비즈니스 서적 - 공개 출판물"
+        },
+        "Books/General": {
+          "patterns": [
+            "*brain*", "*intelligence*", "*Book of Why*",
+            "Atomic_Habits*", "*How to Create a Mind*",
+            "*predictably irrational*", "*Pearl*"
+          ],
+          "pi_level": "NONE",
+          "description": "일반 서적 - 공개 출판물"
+        },
+        "AI": {
+          "patterns": [
+            "*Kurzweil*", "*hinton-*", "*pnas.*",
+            "*peter-thiel*", "*uaai_a*"
+          ],
+          "pi_level": "NONE",
+          "description": "AI 연구자료 - 공개 논문/사진"
+        },
+        "강연자료": {
+          "patterns": [
+            "*SNS와 콘텐츠*", "*자금조달 로드맵*", "*글로벌 진출*",
+            "*Build-Session*", "*Cheat Sheet*", "*디커플링*",
+            "*아산두어스*", "*메텔*", "*알파브라더스*"
+          ],
+          "pi_level": "NONE",
+          "description": "강연 자료 - 공개 발표 자료"
+        },
+        "한국어": {
+          "patterns": [
+            "*Talk*to*Me*in*Korean*", "*korean*level*",
+            "pdfcoffee.com_talk*"
+          ],
+          "pi_level": "NONE",
+          "description": "한국어 교재 - 공개 학습 자료"
+        }
       },
       "patterns": [
         "*교육*", "*강연*", "Notion Icons*", "Notioly*",
@@ -115,25 +199,49 @@
     "Media": {
       "description": "개인 사진, 영상, 스크린샷, 오디오",
       "subfolders": {
-        "AI생성이미지": [
-          "Gemini_Generated_Image*", "ChatGPT Image*",
-          "제목을-입력해주세요*"
-        ],
-        "개인사진": [
-          "IMG_*", "SNOW_*", "KakaoTalk_Photo*", "KakaoTalk_20*",
-          "아산두어스*", "Meet-up*", "*received_*",
-          "20240928*", "20241003*", "1462630160981*", "1475243438732*",
-          "1483237490302*", "1526707545988*", "18184673943*",
-          "468192649*", "52d0a4ee*", "6f1f54917d*", "94ba8d8e*",
-          "ALEXANDER00008*", "a2vef2*", "a2vn8q*", "a2vnxj*"
-        ],
-        "스크린샷": [
-          "Screenshot*", "ScreenRecording_*", "Screenshot-*",
-          "test_Screenshot_*"
-        ],
-        "동영상": ["*.mp4", "*.MP4", "*.MOV", "*.mov", "*.gif"],
-        "음성": ["*.mp3", "*.m4a", "*.M4A"],
-        "기타이미지": []
+        "AI생성이미지": {
+          "patterns": [
+            "Gemini_Generated_Image*", "ChatGPT Image*",
+            "제목을-입력해주세요*"
+          ],
+          "pi_level": "NONE",
+          "description": "AI 생성 이미지 - 파일명에 PI 없음"
+        },
+        "개인사진": {
+          "patterns": [
+            "IMG_*", "SNOW_*", "KakaoTalk_Photo*", "KakaoTalk_20*",
+            "아산두어스*", "Meet-up*", "*received_*",
+            "20240928*", "20241003*", "1462630160981*", "1475243438732*",
+            "1483237490302*", "1526707545988*", "18184673943*",
+            "468192649*", "52d0a4ee*", "6f1f54917d*", "94ba8d8e*",
+            "ALEXANDER00008*", "a2vef2*", "a2vn8q*", "a2vnxj*"
+          ],
+          "pi_level": "NONE",
+          "description": "개인 사진 - 파일명에 PI 없음 (내용은 별도 문제)"
+        },
+        "스크린샷": {
+          "patterns": [
+            "Screenshot*", "ScreenRecording_*", "Screenshot-*",
+            "test_Screenshot_*"
+          ],
+          "pi_level": "NONE",
+          "description": "스크린샷 - 파일명에 PI 없음"
+        },
+        "동영상": {
+          "patterns": ["*.mp4", "*.MP4", "*.MOV", "*.mov", "*.gif"],
+          "pi_level": "NONE",
+          "description": "동영상 파일 - 파일명에 PI 없음"
+        },
+        "음성": {
+          "patterns": ["*.mp3", "*.m4a", "*.M4A"],
+          "pi_level": "NONE",
+          "description": "음성 파일 - 파일명에 PI 없음"
+        },
+        "기타이미지": {
+          "patterns": [],
+          "pi_level": "NONE",
+          "description": "분류 어려운 이미지 - 수동 분류"
+        }
       },
       "patterns": [
         "IMG_*", "SNOW_*", "KakaoTalk_*", "Screenshot*",
@@ -154,7 +262,8 @@
       "Resources/스타트업 내 사업계획서 → Business (Resources 아님)",
       "*.jpg/*.png 파일: Business 관련 패턴 우선 → Business/개인서류",
       "*.jpg/*.png 파일: Dev 관련 패턴 우선 → Dev/에셋",
-      "나머지 이미지 → Media/기타이미지"
+      "나머지 이미지 → Media/기타이미지",
+      "*.p12: 개인서류 패턴 없으면 → Dev/인증키 (Business/개인서류 우선)"
     ]
   },
   "delete": {
