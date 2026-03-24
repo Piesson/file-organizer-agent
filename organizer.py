@@ -72,7 +72,7 @@ def build_subfolder_list(rules, target_folder):
     순서: Business → Dev → Resources → Media (우선순위 순)
     """
     entries = []
-    for cat_name in ["Business", "Dev", "Resources", "Media"]:
+    for cat_name in ["Business", "Dev", "Resources", "Media", "기타"]:
         cat = rules["categories"].get(cat_name)
         if not cat:
             continue

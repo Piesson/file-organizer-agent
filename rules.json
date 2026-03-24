@@ -264,6 +264,16 @@
         "*.jpeg", "*.jpg", "*.JPG", "*.png", "*.PNG",
         "*.gif", "*.webp"
       ]
+    },
+    "기타": {
+      "description": "패턴 미매칭 파일 - 수동 분류 대기",
+      "subfolders": {
+        "미분류": {
+          "patterns": ["*"],
+          "pi_level": "NONE",
+          "description": "분류 불가 파일 - 수동 정리 필요"
+        }
+      }
     }
   },
   "boundary_rules": {
