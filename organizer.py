@@ -20,6 +20,7 @@ import json
 import logging
 import shutil
 import sys
+import unicodedata
 from pathlib import Path
 
 RULES_JSON = Path(__file__).parent / "rules.json"
@@ -111,10 +112,11 @@ def get_files_in_downloads(target_folder):
 
 
 def match_file(filename, entries):
-    """첫 번째 매칭 엔트리 반환."""
+    """첫 번째 매칭 엔트리 반환. macOS NFD 파일명을 NFC로 정규화 후 매칭."""
+    normalized = unicodedata.normalize("NFC", filename)
     for target_path, patterns, pi_level, cat_name, subfolder_rel in entries:
         for pattern in patterns:
-            if fnmatch.fnmatch(filename, pattern):
+            if fnmatch.fnmatch(normalized, pattern):
                 return target_path, pi_level, cat_name, subfolder_rel
     return None, None, None, None
 

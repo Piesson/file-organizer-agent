@@ -38,7 +38,9 @@
         },
         "예창패/2026": {
           "patterns": [
-            "*예비창업패키지*2026*", "2026*예비창업*", "*2026*예창패*"
+            "*예비창업패키지*2026*", "2026*예비창업*", "*2026*예창패*",
+            "2026*business*plan*", "*2026_business*plan*",
+            "*예창패*사업계획서*", "*예창패*증빙*"
           ],
           "pi_level": "MEDIUM",
           "description": "예창패 2026 - 대표자 이름 포함 사업계획서"
@@ -47,7 +49,8 @@
           "patterns": [
             "*창업중심대학*", "*캠퍼스타운*", "*창업경진대회*",
             "*시대창*", "*아이디어 사업화*", "*동대문구*창업*",
-            "*혁신창업리그*", "*정주영*창업*"
+            "*혁신창업리그*", "*정주영*창업*",
+            "*창중대*", "*초기창업패키지*", "*접수증*"
           ],
           "pi_level": "MEDIUM",
           "description": "창업 지원 프로그램 문서 - 이름 포함 가능"
@@ -63,10 +66,18 @@
           "patterns": [
             "*급여명세서*", "*재학증명서*", "*소득확인*", "*경력증명서*",
             "*휴학증명서*", "*소득금액증명*", "*졸업증명서*", "*신분증*",
-            "*.p12", "*수료증*"
+            "*.p12", "*수료증*",
+            "*카드이용내역*", "*직불카드*", "*청년전세임대*", "*개인정보수집*"
           ],
           "pi_level": "HIGH",
           "description": "개인 신원 서류 - 이름/ID번호/재정현황 포함"
+        },
+        "투자": {
+          "patterns": [
+            "*투자의향서*", "*투자 의향서*", "*SAFE*투자*"
+          ],
+          "pi_level": "MEDIUM",
+          "description": "투자 관련 서류 - 재정 조건/당사자 정보 포함"
         },
         "채용": {
           "patterns": [
@@ -102,13 +113,14 @@
           "patterns": [
             "*.svg", "*_logo*", "*icon*", "Notioly*",
             "Notion Icons*", "*startup.png*", "*poster*", "kbim*.png",
-            "photoofkb*", "photoofme*"
+            "photoofkb*", "photoofme*",
+            "*logo*.png", "*logo*.jpg", "google*.html"
           ],
           "pi_level": "NONE",
           "description": "개발 에셋 - 공개 이미지/아이콘"
         },
         "배포": {
-          "patterns": ["*.aab", "*.apk", "client.o", "koddies-*.aab"],
+          "patterns": ["*.aab", "*.apk", "*.ipa", "client.o", "koddies-*.aab"],
           "pi_level": "NONE",
           "description": "앱 빌드 파일 - 배포용 바이너리"
         },
@@ -151,7 +163,8 @@
         "Books/Business": {
           "patterns": [
             "*elon-musk*", "*whats-our-problem*", "*ALMANACK*",
-            "*Mom Test*", "*Four_Steps*", "*Switch*"
+            "*Mom Test*", "*Four_Steps*", "*Switch*",
+            "*subscription-apps*"
           ],
           "pi_level": "NONE",
           "description": "비즈니스 서적 - 공개 출판물"
@@ -184,8 +197,9 @@
         },
         "한국어": {
           "patterns": [
-            "*Talk*to*Me*in*Korean*", "*korean*level*",
-            "pdfcoffee.com_talk*"
+            "*Talk*to*Me*in*Korean*", "*Talk*To*Me*In*Korean*",
+            "*korean*level*", "pdfcoffee.com_talk*",
+            "ttmik*", "*세종학당*", "*이민자체류실태*"
           ],
           "pi_level": "NONE",
           "description": "한국어 교재 - 공개 학습 자료"
@@ -202,14 +216,14 @@
         "AI생성이미지": {
           "patterns": [
             "Gemini_Generated_Image*", "ChatGPT Image*",
-            "제목을-입력해주세요*"
+            "제목을-입력해주세요*", "제목을 입력해주세요*"
           ],
           "pi_level": "NONE",
           "description": "AI 생성 이미지 - 파일명에 PI 없음"
         },
         "개인사진": {
           "patterns": [
-            "IMG_*", "SNOW_*", "KakaoTalk_Photo*", "KakaoTalk_20*",
+            "IMG_*", "SNOW_*", "KakaoTalk_Photo*", "KakaoTalk_20*", "WhatsApp*",
             "아산두어스*", "Meet-up*", "*received_*",
             "20240928*", "20241003*", "1462630160981*", "1475243438732*",
             "1483237490302*", "1526707545988*", "18184673943*",
