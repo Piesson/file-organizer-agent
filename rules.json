@@ -114,7 +114,8 @@
             "*.svg", "*_logo*", "*icon*", "Notioly*",
             "Notion Icons*", "*startup.png*", "*poster*", "kbim*.png",
             "photoofkb*", "photoofme*",
-            "*logo*.png", "*logo*.jpg", "google*.html"
+            "*logo*.png", "*logo*.jpg", "google*.html",
+            "admin_*.png", "admin_*.jpg"
           ],
           "pi_level": "NONE",
           "description": "개발 에셋 - 공개 이미지/아이콘"
@@ -136,7 +137,8 @@
           "patterns": [
             "*.db", "*.csv", "logs_result.json",
             "*Edge Requests*", "*.xml", "responses.*",
-            "*고객*정리*.xlsx", "*User*.xlsx", "*FB 유저*"
+            "*고객*정리*.xlsx", "*User*.xlsx", "*FB 유저*",
+            "*.heapsnapshot", "*-diagnostics.json"
           ],
           "pi_level": "MEDIUM",
           "description": "데이터 파일 - 사용자 데이터 포함 가능"

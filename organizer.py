@@ -162,12 +162,13 @@ def move_file(src, dest_dir, logger):
     return dest
 
 
-def run_organize(execute, mode):
+def run_organize(execute, mode, source=None):
     """파일 정리 실행."""
     rules = load_rules()
     target_folder = get_target_folder(rules)
+    source_folder = Path(source).expanduser() if source else target_folder
     entries = build_subfolder_list(rules, target_folder)
-    files = get_files_in_downloads(target_folder)
+    files = get_files_in_downloads(source_folder)
 
     logger = setup_log_file() if execute else None
 
@@ -220,12 +221,13 @@ def run_organize(execute, mode):
         logger.info(f"완료: 이동={moved}, 스킵={skipped}, 미분류={unmatched_count} [{mode_label}]")
 
 
-def run_report():
+def run_report(source=None):
     """미분류 파일 목록 보고."""
     rules = load_rules()
     target_folder = get_target_folder(rules)
+    source_folder = Path(source).expanduser() if source else target_folder
     entries = build_subfolder_list(rules, target_folder)
-    files = get_files_in_downloads(target_folder)
+    files = get_files_in_downloads(source_folder)
 
     unmatched = []
     for f in files:
@@ -283,6 +285,12 @@ def main():
         action="store_true",
         help="실제 파일 이동 (기본: dry-run)",
     )
+    parser.add_argument(
+        "--source",
+        type=str,
+        default=None,
+        help="정리할 소스 폴더 (기본: ~/Downloads)",
+    )
 
     mode_group = parser.add_mutually_exclusive_group()
     mode_group.add_argument(
@@ -304,7 +312,7 @@ def main():
     args = parser.parse_args()
 
     if args.report:
-        run_report()
+        run_report(source=args.source)
         return
 
     if args.pi_only:
@@ -314,7 +322,7 @@ def main():
     else:
         mode = "all"
 
-    run_organize(execute=args.execute, mode=mode)
+    run_organize(execute=args.execute, mode=mode, source=args.source)
 
 
 if __name__ == "__main__":
